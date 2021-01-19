@@ -39,7 +39,8 @@ const addWeatherData =(req,res)=> {
 
     const newWeatherEntry = {
         city: req.body.city,
-        temp: req.body.temp
+        temp: req.body.temp,
+        feeling: req.body.feeling
     }
 
     projectData[id] = {...newWeatherEntry};

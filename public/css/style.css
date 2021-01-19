@@ -1,0 +1,126 @@
+body {
+    font-family: sans-serif;
+}
+
+.compartment-container {
+    display: flex;
+    flex-flow: column;
+    flex: 0 1 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-grow:1; */
+    grid-gap: 16px;
+}
+
+.element-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 8px 8px 8px;
+    z-index: 100;
+    grid-gap: 16px;
+    background: lightslategray;
+
+
+}
+
+.sticky-header {
+    background: rgb(197, 206, 214);
+    position: fixed;
+    top:0;
+    width: 100%;
+    
+    z-index: 100;
+}
+
+#container {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px;
+    padding: 8px 8px 8px 8px;
+
+}
+
+@media screen and (min-width: 401px) and (max-width:600px)
+{
+    #container {
+        grid-template-columns: repeat(2,1fr);
+
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width:800px)
+{
+    #container {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1100px)
+{
+    #container {
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+@media screen and (min-width: 1101px)
+{
+    #container {
+        grid-template-columns: repeat(5,1fr);
+        /* grid-template-rows: 600px; */
+    }
+}
+
+.entry-class {
+    border:1px solid #dacfcf;
+    width: 150px;
+    height: 150px;
+    border-radius: 0.5em;
+    padding: 8px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.entry-class:hover {
+    transform: scale(1.05);
+    transition: transform 0.25s ease-out;
+}
+
+.box {
+    border: 1px solid black;
+}
+
+
+#feelings {
+
+    line-height: 3.0;
+    min-width: 100px;
+    padding: 8px 8px 8px 8px;
+
+}
+
+.button-class:hover {
+    cursor: pointer;
+}
+
+button {
+    padding: 8px 8px 8px 8px;
+    font-size: 1.5em;
+}
+
+
+.footer {
+    background: lightslategray;
+    padding: 8px 8px 8px 8px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}

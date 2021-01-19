@@ -1,13 +1,46 @@
 <html>
+    
     <head>
-        
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link href = "css/style.css" rel="stylesheet"></link>
+
     </head>
+    
+
     <body>
-        <h1> Weather Bureau </h1>
-        <input type="text" placeholder="Enter Zip Code here" id="zip">
-        <button> Generate Weather Forecast </button>
-        <p> Temperature today in <span id ="city"> </span> is <span id="temp"> </span>
-        </p>
+        <header>
+            <h1> Weather Bureau </h1>
+        </header>
+
+        <main>
+
+            <section class = "main-container">
+
+                <div id="element-container" class = "box element-container">
+                    <input type="text" placeholder="Enter Zip Code here" id="zip">
+                    <textarea placeholder="How are you feeling today" id="feelings"></textarea>
+                    <button class="button-class"> Generate Forecast </button>
+                </div>
+
+                <div id="container" class="box">
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class = "box footer">
+            <p> Weather App Developed by Sankalp, from DesignQore , as part of Udacity Degree Program </p>
+        </footer>
+
+
+
+        <!-- <p> Temperature today in <span id ="city"> </span> is <span id="temp"> </span> -->
+        <!-- </p> -->
 
 
 
