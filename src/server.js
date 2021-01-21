@@ -4,7 +4,13 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+
+//Array of Object to hold data fetched and transformed from API and modified by app.js code
+
 let projectData = {};
+
+//Counter to assign key value to every object entered in projectData
+
 let id = 0;
 
 
@@ -27,38 +33,44 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-
-//Array of Object to hold data fetched and transformed from API and modified by app.js code
-
-console.log('Current ProjectData value');
-console.log(projectData);
-
 //Helper function to add Weather data to projectData array
 
 const addWeatherData =(req,res)=> {
 
     const newWeatherEntry = {
+
         city: req.body.city,
         temp: req.body.temp,
-        feeling: req.body.feeling
+        dateValue:req.body.dateValue,
+        feeling: req.body.feeling,
+        minTemp: req.body.minTemp,
+        maxTemp: req.body.maxTemp,
+        humidity: req.body.humidity,
+        windSpeed: req.body.windSpeed,
+        country: req.body.country,
+        description: req.body.description,
+        realFeel: req.body.realFeel,
+        weatherIcon: req.body.weatherIcon
+
     }
 
     projectData[id] = {...newWeatherEntry};
     id +=1;
-    console.log(projectData);
     res.send(projectData);
-    
 
 }
 
 const sendWeatherData = (req,res)=> {
     res.send(projectData);
+}
 
+const sendRecentWeatherData =(req,res)=> {
+    res.send(projectData[id-1]);
 }
 
 //Start server on the assigned port
 
-const listening = ()=>{
+const listening = ()=> {
     console.log(`Server is listening on port ${port}`);
 };
 
@@ -67,5 +79,6 @@ app.listen(port,listening);
 //Route Call
 
 app.post('/addWeatherData',addWeatherData);
+app.get('/weather',sendRecentWeatherData);
 app.get('/all',sendWeatherData);
 

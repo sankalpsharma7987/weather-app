@@ -1,0 +1,154 @@
+.box {
+    border: 1px solid black;
+}
+
+body {
+    font-family: sans-serif;
+    background:#f08a5d;
+}
+
+header {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.sticky-header {
+    background: rgb(206,207,207);
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+
+.sticky-header a:hover {
+    background: #e9a486;
+}
+
+h1 {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+h2 {
+    font-size: 2em;
+    color: white;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.nav-bar {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: white;
+    padding: 8px 16px 8px 8px;
+}
+
+a:hover {
+    background: rgb(206,207,207)
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    color: black;
+    padding: 8px 8px 8px 8px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 16px;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 300px;
+    grid-auto-rows: 300px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+    grid-gap: 16px;
+    background: rgb(206,207,207);
+}
+
+
+.weather-class {
+    display: flex;
+    flex-flow: row;
+}
+
+.feeling-class {
+    display: flex;
+    flex-flow: column;
+}
+
+.entry-class {
+    border:1px solid #dacfcf;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1em;
+    width: 200px;
+    height: 250px;
+    border-radius: 0.5em;
+    padding: 8px 8px 8px 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+    text-align: center;
+    background: #e9a486;
+}
+
+.entry-class:hover {
+    background:#f08a5d;
+}
+
+@media screen and (min-width: 501px) and (max-width:800px) {
+
+    .container {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+@media screen and (min-width: 801px) and (max-width: 1100px) {
+
+    .container {
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 400px;
+        grid-auto-rows: 400px;
+    }
+
+}
+
+@media screen and (min-width: 1101px) {
+
+    .container {
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: 400px;
+        grid-auto-rows: 400px;
+    }
+
+}
+
+@media screen and (min-width: 801px) {
+
+    .entry-class {
+        height: 350px;
+        font-size: 1.5em;
+    }
+
+}
+
+
+.footer {
+    padding: 8px 8px 8px 8px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    color:white;
+}
