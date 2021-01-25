@@ -8,6 +8,7 @@ const $ZIP_ELEMENT = document.querySelector('#zip');
 const $FEELING_ELEMENT = document.querySelector('#feelings');
 const $DATE_ELEMENT = document.querySelector('#date');
 const $TEMP_ELEMENT = document.querySelector('#temp');
+const $ENTRY_HOLDER_ELEMENT = document.querySelector('#entryHolder');
 const $CONTENT_ELEMENT = document.querySelector('#content');
 const $RECENT_ENTRY_ELEMENT = document.querySelector('#entryHeader');
 const $NAVBAR_ELEMENT = document.querySelector('.nav-bar');
@@ -173,6 +174,10 @@ const updateUI = async ()=> {
         //Clear UI Elements after the data has been rendered
         clearUI();
 
+        //Show UI Elements
+        $ENTRY_HOLDER_ELEMENT.removeAttribute('style');
+        
+
         //Scroll to the Recent Entry Section to view the forecast
         $RECENT_ENTRY_ELEMENT.scrollIntoView({behavior:'smooth'})
        
@@ -232,3 +237,6 @@ const stickyHeader  = ()=> {
 
 $BUTTON_ELEMENT.addEventListener('click',generateWeatherResults);
 window.addEventListener('scroll',stickyHeader);
+
+//Hide Entry Holder Division Tag on page load
+$ENTRY_HOLDER_ELEMENT.setAttribute('style',"display:none");
