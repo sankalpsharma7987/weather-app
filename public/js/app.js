@@ -1,8 +1,5 @@
 //Declaring constants
 
-const $API_KEY = '01a30f10368848dd3f28c71405285e83';
-const $BASE_URL = 'http://api.openweathermap.org/data/2.5/weather';
-
 const $BUTTON_ELEMENT = document.querySelector('#generate');
 const $ZIP_ELEMENT = document.querySelector('#zip');
 const $FEELING_ELEMENT = document.querySelector('#feelings');
@@ -14,49 +11,22 @@ const $RECENT_ENTRY_ELEMENT = document.querySelector('#entryHeader');
 const $NAVBAR_ELEMENT = document.querySelector('.nav-bar');
 const $STICKY_HEADER = $NAVBAR_ELEMENT.offsetTop;
 
-const $MONTH = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-const $CURRENT_DATE = new Date();
-const $TODAY_DATE = $CURRENT_DATE.getDate();
-const $TODAY_YEAR = $CURRENT_DATE.getFullYear();
-const $TODAY_MONTH = $MONTH[$CURRENT_DATE.getMonth()];
-const $TODAY = $TODAY_MONTH +' ' +$TODAY_DATE +' '+$TODAY_YEAR;
-
-
 //Helper function for async javascript get method calls
 
-const getWeatherData = async (baseURL, zipCode, apiKey)=> {
+const getWeatherData = async (zipCode, feeling)=> {
 
-    const res = await fetch(`${baseURL}?zip=${zipCode},us&units=imperial&appid=${apiKey}`);
+    // const res = await fetch(`${baseURL}?zip=${zipCode},us&units=imperial&appid=${apiKey}&feeling=${feeling}`);
+    const res = await fetch(`http://localhost:3000/fetchWeatherData?zip=${zipCode}&feeling=${feeling}`);
 
     try {
       const data = await res.json();
+      console.log(data);
       return data;
     }  catch(error) {
       console.log("error", error);
     }
 
   }
-
-
-const postWeatherData = async (url = '', data = {})=> {
-
-    const response = await fetch(url, {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),      
-  })
-
-  try {
-      const data = await response.json();
-  }
-  catch(error){
-      console.log(error);
-  }
-
-}
 
 //Helper function to clear the UI Element.
 
@@ -145,15 +115,11 @@ const clearData = ()=>{
 
 }
 
-const updateUI = async ()=> {
-
-    //The response object will request for all the objects from the server.
-
-    const res = await fetch('/weather');
+const updateUI = async (dataObject)=> {
 
     try {
         
-        const dataObject = await res.json();
+        
 
         //Clear any previous data, already present in the DOM
         clearData();
@@ -196,25 +162,9 @@ const generateWeatherResults = (e)=> {
 
     e.preventDefault();
 
-    getWeatherData($BASE_URL,$ZIP_ELEMENT.value,$API_KEY).then(
-        data=> {
-            postWeatherData('/addWeatherData',{
-              city: data.name,
-              temp: data.main.temp,
-              dateValue: $TODAY,
-              feeling: $FEELING_ELEMENT.value,
-              minTemp: data.main.temp_min,
-              maxTemp: data.main.temp_max,
-              humidity: data.main.humidity,
-              windSpeed: data.wind.speed,
-              country:data.sys.country,
-              description: data.weather[0].description,
-              realFeel: data.main.feels_like,
-              weatherIcon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-            }).then(
-                updateUI()
-            )
-        }
+    //Call getWeatherData helper function on client app.js javascript file and sends zip code and feeling
+    getWeatherData($ZIP_ELEMENT.value,$FEELING_ELEMENT.value).then(
+      data=> updateUI(data)
     )
     
 }

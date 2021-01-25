@@ -1,7 +1,6 @@
 //Declaring constants
 
-const $API_KEY = '01a30f10368848dd3f28c71405285e83';
-const $BASE_URL = 'http://api.openweathermap.org/data/2.5/weather';
+
 const $ENTRY_HOLDER_ELEMENT = document.querySelector('.container');
 const $NAVBAR_ELEMENT = document.querySelector('.nav-bar');
 const $STICKY_HEADER = $NAVBAR_ELEMENT.offsetTop;
