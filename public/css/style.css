@@ -26,6 +26,90 @@ h2 {
     justify-content: flex-end;
 }
 
+.nav-bar-mobile {
+    display: none;
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: flex-start
+}
+
+.nav-bar-modal-mobile {
+    display: none;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4em;
+    background: rgb(206,207,207);
+    color: #e9a486;
+    width: 80%;
+    height: 40%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left:0;
+    animation: slide-modal-out 0.6s ease-in-out;
+}
+
+@keyframes slide-modal-out {
+    from{
+        transform: translateY(-200px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+    
+}
+
+.nav-bar-modal-mobile-display{
+    display: block;
+}
+
+.nav-bar-mobile-burger{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 1em;
+}
+
+.nav-bar-burger {
+    border-bottom: 1px solid white;
+    width: 1.5em;
+    height: 0.5em;
+    font-weight: bold;
+}
+
+.nav-bar-items {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    grid-gap: 1em;
+}
+
+.nav-bar-items a:hover {
+    background: #778899;
+    cursor: pointer;
+}
+
+
+.nav-bar-mobile-burger:hover{
+    cursor:pointer;
+}
+
+.nav-bar-mobile .close-btn-class{
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size:2em;
+    cursor: pointer;
+}
+
+.close-btn-id {
+    outline: none;
+}
+
 a {
     text-decoration: none;
     font-size: 1.5em;
@@ -50,6 +134,7 @@ h1 {
     flex-direction: column;
     /* flex-grow:1; */
     grid-gap: 16px;
+    z-index: -100;
 }
 
 
@@ -149,6 +234,17 @@ img {
 
 #generate:hover {
     cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+    .nav-bar-mobile{
+        display: block;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
 }
 
 @media screen and (max-width: 400px) {

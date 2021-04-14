@@ -5,10 +5,18 @@ const $ZIP_ELEMENT = document.querySelector('#zip');
 const $FEELING_ELEMENT = document.querySelector('#feelings');
 const $DATE_ELEMENT = document.querySelector('#date');
 const $TEMP_ELEMENT = document.querySelector('#temp');
+
 const $ENTRY_HOLDER_ELEMENT = document.querySelector('#entryHolder');
 const $CONTENT_ELEMENT = document.querySelector('#content');
+
 const $RECENT_ENTRY_ELEMENT = document.querySelector('#entryHeader');
+
 const $NAVBAR_ELEMENT = document.querySelector('.nav-bar');
+const $NAVBAR_MOBILE_BURGER_ELEMENT = document.querySelector('.nav-bar-mobile-burger');
+const $NAVBAR_MODAL_MOBILE_ELEMENT = document.querySelector('.nav-bar-modal-mobile');
+
+const $CLOSE_BUTTON_ELEMENT = document.querySelector('#close-btn-id');
+
 const $STICKY_HEADER = $NAVBAR_ELEMENT.offsetTop;
 
 //Helper function for async javascript get method calls
@@ -181,12 +189,26 @@ const stickyHeader  = ()=> {
     $NAVBAR_ELEMENT.classList.remove("sticky-header");
   }
 
-} 
+}
+
+//Helper function to slide-out navigation-modal for smaller screens
+const slideOutNavigationModal =()=> {
+
+  $NAVBAR_MODAL_MOBILE_ELEMENT.classList.add('nav-bar-modal-mobile-display');
+
+}
+
+const closeNavigationModal = ()=>{
+  $NAVBAR_MODAL_MOBILE_ELEMENT.classList.remove('nav-bar-modal-mobile-display');
+}
 
 //Event Listener to generate journal entry at the click of Generate Forecast button
 
 $BUTTON_ELEMENT.addEventListener('click',generateWeatherResults);
 window.addEventListener('scroll',stickyHeader);
+
+$NAVBAR_MOBILE_BURGER_ELEMENT.addEventListener('click',slideOutNavigationModal);
+$CLOSE_BUTTON_ELEMENT.addEventListener('click',closeNavigationModal);
 
 //Hide Entry Holder Division Tag on page load
 $ENTRY_HOLDER_ELEMENT.setAttribute('style',"display:none");

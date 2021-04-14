@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
-const {forecast}=require('../lib/forecast');
+const forecast=require('../lib/forecast');
 
 //Declare Constants to calculate date
 
