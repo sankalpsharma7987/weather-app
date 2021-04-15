@@ -50,7 +50,7 @@ const verifyZipValue = (e)=> {
 const getWeatherData = async (zipCode, feeling)=> {
 
     // const res = await fetch(`${baseURL}?zip=${zipCode},us&units=imperial&appid=${apiKey}&feeling=${feeling}`);
-    const res = await fetch(`http://localhost:3000/fetchWeatherData?zip=${zipCode}&feeling=${feeling}`);
+    const res = await fetch(`/fetchWeatherData?zip=${zipCode}&feeling=${feeling}`);
 
     try {
       const data = await res.json();
