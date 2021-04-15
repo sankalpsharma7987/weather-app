@@ -12,12 +12,14 @@ const $CONTENT_ELEMENT = document.querySelector('#content');
 const $RECENT_ENTRY_ELEMENT = document.querySelector('#entryHeader');
 
 const $NAVBAR_ELEMENT = document.querySelector('.nav-bar');
+const $NAVBAR_MOBILE_ELEMENT = document.querySelector('.nav-bar-mobile');
 const $NAVBAR_MOBILE_BURGER_ELEMENT = document.querySelector('.nav-bar-mobile-burger');
 const $NAVBAR_MODAL_MOBILE_ELEMENT = document.querySelector('.nav-bar-modal-mobile');
 
 const $CLOSE_BUTTON_ELEMENT = document.querySelector('#close-btn-id');
 
 const $STICKY_HEADER = $NAVBAR_ELEMENT.offsetTop;
+const $STICKY_MOBILE_HEADER = $NAVBAR_MOBILE_ELEMENT.offsetTop;
 
 const $ERROR_ELEMENT =document.querySelector('.error');
 
@@ -243,9 +245,21 @@ const stickyHeader  = ()=> {
 //Add class consisting of fixed element-container css property when the element-container offsetY value is greater than the value of window.scrollY
 
   if (window.scrollY > $STICKY_HEADER) {
-    $NAVBAR_ELEMENT.classList.add("sticky-header");
-  } else {
-    $NAVBAR_ELEMENT.classList.remove("sticky-header");
+  $NAVBAR_ELEMENT.classList.add("sticky-header");
+  $NAVBAR_MOBILE_ELEMENT.classList.add("sticky-header-mobile");
+  } 
+
+  else {
+  $NAVBAR_ELEMENT.classList.remove("sticky-header");
+  
+  }
+
+  if(window.scrollY>$STICKY_MOBILE_HEADER)
+  {
+    $NAVBAR_MOBILE_ELEMENT.classList.add("sticky-header-mobile");
+  }
+  else {
+    $NAVBAR_MOBILE_ELEMENT.classList.remove("sticky-header-mobile");
   }
 
 }

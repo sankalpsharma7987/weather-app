@@ -1,3 +1,4 @@
+@import './navigation-burger.css';
 body {
     font-family: sans-serif;
     /* color: white; */
@@ -5,14 +6,23 @@ body {
 }
 
 .sticky-header {
-    background: rgb(206,207,207);
+    background: rgb(97, 99, 99);
     position: fixed;
     top:0;
+    left: 0;
     width: 100%;
 }
 
 .sticky-header a:hover {
     background: #e9a486;
+}
+
+.sticky-header-mobile {
+    background: rgba(97, 99, 99, 0.9);
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
 }
 
 h2 {
@@ -26,129 +36,7 @@ h2 {
     justify-content: flex-end;
 }
 
-.nav-bar-mobile {
-    display: none;
-    flex-flow: column;
-    align-items: stretch;
-    justify-content: flex-start;
-}
 
-.nav-bar-modal-mobile {
-    display: none;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4em;
-    background: rgb(206,207,207);
-    color: #e9a486;
-    width: 80%;
-    height: 40%;
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    left:0;
-    animation: slide-modal-out 0.6s ease-in-out;
-}
-/* Create bounce effect for vertical navigation bar */
-
-/* @keyframes slide-modal-out { 
-    
-    0%{ 
-        transform: translateY(-180px)
-    }
-    10%{
-        transform: translateY(-120px)
-    }
-    20%{
-        transform: translateY(-60px)
-    }
-    30%{
-        transform: translateY(-120px)
-    }
-    40%{
-        transform: translateY(-60px)
-    }
-    50%{
-        transform: translateY(-40px)
-    }
-    60%{
-        transform: translateY(-60px)
-    }
-    70%{
-        transform: translateY(-40px)
-    }
-    80%{
-        transform: translateY(-20px)
-    }
-    90%{
-        transform: translateY(-10px)
-    }
-    100%{
-        transform: translateY(0px)
-    }
-} */
-
-/*Vertical Navigation Bar */
-
-@keyframes slide-modal-out {
-
-    from{
-            transform: translateY(-200px);
-        }
-
-        to{
-            transform: translateY(0px);
-        }
-}
-.nav-bar-modal-mobile-display{
-    display: block;
-}
-
-.nav-bar-mobile-burger{
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-bottom: 1em;
-}
-
-.nav-bar-burger {
-    border-bottom: 2px solid white;
-    width: 1.5em;
-    height: 0.5em;
-    font-weight: bold;
-}
-
-.nav-bar-items {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    grid-gap: 1em;
-}
-
-.nav-bar-items a:hover {
-    background: #778899;
-    cursor: pointer;
-}
-
-
-.nav-bar-mobile-burger:hover{
-    cursor:pointer;
-}
-
-.nav-bar-mobile .close-btn-class{
-    color: black;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size:2em;
-    cursor: pointer;
-}
-
-.close-btn-id {
-    outline: none;
-}
 
 a {
     text-decoration: none;
@@ -225,10 +113,14 @@ img {
 
 .box {
     border: 1px solid black;
+    border-radius: 0.5em;
 }
 
 #zip {
     font-size: 1.5em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    border-style: none;
 }
 
 #zip:focus{
@@ -242,6 +134,12 @@ img {
     width: 100%;
     height: 200px;
     padding: 8px 8px 8px 8px;
+    border-radius: 0.5em;
+    border-style: none;
+}
+
+#feelings:focus {
+    outline: none;
 }
 
 @media screen and (max-width: 400px) {
@@ -273,6 +171,7 @@ img {
     font-size: 1.5em;
     border-radius: 0.5em;
     background:rgb(206, 207, 207);
+    border-style: none;
 }
 
 
@@ -295,9 +194,6 @@ img {
 }
 
 @media screen and (max-width: 600px){
-    .nav-bar-mobile{
-        display: block;
-    }
 
     .nav-bar {
         display: none;

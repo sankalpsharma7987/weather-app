@@ -1,5 +1,8 @@
+@import './navigation-burger.css';
+
 .box {
     border: 1px solid black;
+    border-radius: 0.5em;
 }
 
 body {
@@ -14,14 +17,23 @@ header {
 }
 
 .sticky-header {
-    background: rgb(206,207,207);
+    background: rgb(97, 99, 99);
     position: fixed;
     top:0;
+    left:0;
     width: 100%;
 }
 
 .sticky-header a:hover {
     background: #e9a486;
+}
+
+.sticky-header-mobile {
+    background: rgba(97, 99, 99, 0.9);
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
 }
 
 h1 {
@@ -106,6 +118,14 @@ h1 {
 
 .entry-class:hover {
     background:#f08a5d;
+}
+
+@media screen and (max-width: 600px){
+
+    .nav-bar {
+        display: none;
+    }
+
 }
 
 @media screen and (min-width: 501px) and (max-width:800px) {
