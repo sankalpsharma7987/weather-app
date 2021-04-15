@@ -46,6 +46,7 @@ app.use(cors());
 //Helper function to add Weather data to projectData array
 
 const fetchAllWeatherData = (req,res)=> {
+    console.log(projectData);
     res.send(projectData);
 }
 
@@ -109,8 +110,6 @@ app.listen(port,listening);
 
 //Route Call
 
-// app.post('/addWeatherData',addWeatherData);
-// app.get('/weather',sendRecentWeatherData);
 app.get('/fetchWeatherData',fetchWeatherData);
 app.get('/all',fetchAllWeatherData);
 
