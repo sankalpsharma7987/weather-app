@@ -92,7 +92,7 @@ const feeling = req.query.feeling;
 
     projectData[id] = {...newWeatherEntry};
     id +=1;
-
+        console.log(projectData);
         res.send(projectData[id-1])
         
 
