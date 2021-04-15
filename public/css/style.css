@@ -30,7 +30,7 @@ h2 {
     display: none;
     flex-flow: column;
     align-items: stretch;
-    justify-content: flex-start
+    justify-content: flex-start;
 }
 
 .nav-bar-modal-mobile {
@@ -49,17 +49,57 @@ h2 {
     left:0;
     animation: slide-modal-out 0.6s ease-in-out;
 }
+/* Create bounce effect for vertical navigation bar */
+
+/* @keyframes slide-modal-out { 
+    
+    0%{ 
+        transform: translateY(-180px)
+    }
+    10%{
+        transform: translateY(-120px)
+    }
+    20%{
+        transform: translateY(-60px)
+    }
+    30%{
+        transform: translateY(-120px)
+    }
+    40%{
+        transform: translateY(-60px)
+    }
+    50%{
+        transform: translateY(-40px)
+    }
+    60%{
+        transform: translateY(-60px)
+    }
+    70%{
+        transform: translateY(-40px)
+    }
+    80%{
+        transform: translateY(-20px)
+    }
+    90%{
+        transform: translateY(-10px)
+    }
+    100%{
+        transform: translateY(0px)
+    }
+} */
+
+/*Vertical Navigation Bar */
 
 @keyframes slide-modal-out {
-    from{
-        transform: translateY(-200px);
-    }
-    to{
-        transform: translateY(0px);
-    }
-    
-}
 
+    from{
+            transform: translateY(-200px);
+        }
+
+        to{
+            transform: translateY(0px);
+        }
+}
 .nav-bar-modal-mobile-display{
     display: block;
 }
@@ -73,7 +113,7 @@ h2 {
 }
 
 .nav-bar-burger {
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
     width: 1.5em;
     height: 0.5em;
     font-weight: bold;
@@ -98,7 +138,7 @@ h2 {
 }
 
 .nav-bar-mobile .close-btn-class{
-    color: white;
+    color: black;
     position: absolute;
     top: 10px;
     right: 20px;
@@ -191,6 +231,10 @@ img {
     font-size: 1.5em;
 }
 
+#zip:focus{
+    outline: none;
+}
+
 
 #feelings {
     font-size: 1.5em;
@@ -234,6 +278,20 @@ img {
 
 #generate:hover {
     cursor: pointer;
+}
+
+#generate:focus{
+    outline: none;
+}
+
+.error {
+    display: none;
+    color: black;
+    font-weight: bold;
+}
+
+.error-display {
+    display: flex;
 }
 
 @media screen and (max-width: 600px){

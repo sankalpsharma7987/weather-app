@@ -19,6 +19,30 @@ const $CLOSE_BUTTON_ELEMENT = document.querySelector('#close-btn-id');
 
 const $STICKY_HEADER = $NAVBAR_ELEMENT.offsetTop;
 
+const $ERROR_ELEMENT =document.querySelector('.error');
+
+const reg = new RegExp('^[0-9]+$');
+
+//Helper function to verify if the zip code has number
+
+const verifyZipValue = (e)=> {
+
+  const value = e.target.value;
+  
+
+  if(reg.test(value)||e.target.value==="")
+  {
+    $ERROR_ELEMENT.value = "";
+    $ERROR_ELEMENT.classList.remove('error-display');
+  }
+
+  else if(!reg.test(value))
+  {
+    updateErrorUI('Invalid Zip Code for USA')
+  }
+    
+}
+
 //Helper function for async javascript get method calls
 
 const getWeatherData = async (zipCode, feeling)=> {
@@ -28,13 +52,12 @@ const getWeatherData = async (zipCode, feeling)=> {
 
     try {
       const data = await res.json();
-      console.log(data);
       return data;
     }  catch(error) {
-      console.log("error", error);
+      updateErrorUI(error);
     }
 
-  }
+}
 
 //Helper function to clear the UI Element.
 
@@ -123,6 +146,14 @@ const clearData = ()=>{
 
 }
 
+const updateErrorUI = (errorMessage)=>{
+
+  $ERROR_ELEMENT.innerHTML = "";
+  $ERROR_ELEMENT.innerHTML = errorMessage;
+  $ERROR_ELEMENT.classList.add('error-display');
+
+}
+
 const updateUI = async (dataObject)=> {
 
     try {
@@ -169,11 +200,39 @@ Also update the UI Element*/
 const generateWeatherResults = (e)=> {
 
     e.preventDefault();
+    $ERROR_ELEMENT.classList.remove('error-display');
 
-    //Call getWeatherData helper function on client app.js javascript file and sends zip code and feeling
+    if(reg.test($ZIP_ELEMENT.value)&&$ZIP_ELEMENT.value&&$FEELING_ELEMENT.value)
+    {
+      //Call getWeatherData helper function on client app.js javascript file and sends zip code and feeling
     getWeatherData($ZIP_ELEMENT.value,$FEELING_ELEMENT.value).then(
-      data=> updateUI(data)
+      data=> {
+        
+        if(data.error)
+        {
+          updateErrorUI(data.error)
+          clearUI();
+        }
+        else {
+          updateUI(data)
+        }
+      }
     )
+
+    }
+
+    else if(!reg.test($ZIP_ELEMENT.value))
+    {
+      updateErrorUI('Invalid Zip Code for USA');
+      clearUI();
+    }
+
+    else if(!$ZIP_ELEMENT.value||!$FEELING_ELEMENT.value) {
+      updateErrorUI('Cannot leave Zip code or Journal Entry Empty')
+      clearUI();
+    }
+    
+    
     
 }
 
@@ -207,8 +266,16 @@ const closeNavigationModal = ()=>{
 $BUTTON_ELEMENT.addEventListener('click',generateWeatherResults);
 window.addEventListener('scroll',stickyHeader);
 
+//Event Listener to show navigation bar for small screens
+
 $NAVBAR_MOBILE_BURGER_ELEMENT.addEventListener('click',slideOutNavigationModal);
 $CLOSE_BUTTON_ELEMENT.addEventListener('click',closeNavigationModal);
 
+//Event Listener to verify Zip code value
+
+$ZIP_ELEMENT.addEventListener('keyup',verifyZipValue);
+
 //Hide Entry Holder Division Tag on page load
+
 $ENTRY_HOLDER_ELEMENT.setAttribute('style',"display:none");
+
