@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const {forecast} =require('../lib/forecast');
+let journalEntryData = require('./objects/journalEntry');
 
 //Declare Constants to calculate date
 
@@ -15,11 +16,8 @@ const $TODAY_YEAR = $CURRENT_DATE.getFullYear();
 const $TODAY_MONTH = $MONTH[$CURRENT_DATE.getMonth()];
 const $TODAY = $TODAY_MONTH +' ' +$TODAY_DATE +' '+$TODAY_YEAR;
 
-//Array of Object to hold data fetched and transformed from API and modified by app.js code
 
-let projectData = {};
-
-//Counter to assign key value to every object entered in projectData
+//Counter to assign key value to every object entered in journalEntryData
 
 let id = 0;
 
@@ -43,11 +41,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-//Helper function to add Weather data to projectData array
+//Helper function to add Weather data to journalEntryData array
 
 const fetchAllWeatherData = (req,res)=> {
-    console.log(projectData);
-    res.send(projectData);
+    console.log(`Output for fetch all weather data API call ${journalEntryData}`);
+    res.send(journalEntryData);
 }
 
 const fetchWeatherData = (req,res)=> {
@@ -63,7 +61,7 @@ const feeling = req.query.feeling;
         })
     }
     
-    //Pass the valid Zipcode value to fetch weather details of that zipcode and then append it to the projectdata object
+    //Pass the valid Zipcode value to fetch weather details of that zipcode and then append it to the journalEntryData object
 
     forecast({zipCode},(error,{weatherData}={})=> {
 
@@ -74,7 +72,7 @@ const feeling = req.query.feeling;
             })
         }
 
-        const newWeatherEntry = {
+        const newJournalEntry = {
         city: weatherData.city,
         temp: weatherData.temp,
         dateValue: $TODAY,
@@ -90,10 +88,10 @@ const feeling = req.query.feeling;
 
     }
 
-    projectData[id] = newWeatherEntry;
+    journalEntryData[id] = newJournalEntry;
     id +=1;
-        console.log(projectData);
-        res.send(projectData[id-1])
+        console.log(`Output for FetchWeatherData API Call ${journalEntryData}`);
+        res.send(journalEntryData[id-1])
         
 
     })
