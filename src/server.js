@@ -44,8 +44,6 @@ app.use(cors());
 //Helper function to add Weather data to journalEntryData array
 
 const fetchAllWeatherData = (req,res)=> {
-    console.log(`Output for fetch all weather data API call`);
-    console.log(journalEntryData);
     res.send(journalEntryData);
 }
 
@@ -91,8 +89,6 @@ const feeling = req.query.feeling;
 
     journalEntryData[id] = newJournalEntry;
     id +=1;
-        console.log(`Output for FetchWeatherData API Call`);
-        console.log(journalEntryData);
         res.send(journalEntryData[id-1])
         
 
