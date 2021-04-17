@@ -1,4 +1,7 @@
-@import './navigation-burger.css';
+@import './lib/navigation-burger.css';
+@import './lib/footer.css';
+@import './lib/error.css';
+
 body {
     font-family: sans-serif;
     /* color: white; */
@@ -177,20 +180,11 @@ img {
 
 #generate:hover {
     cursor: pointer;
+    background: white;
 }
 
 #generate:focus{
     outline: none;
-}
-
-.error {
-    display: none;
-    color: black;
-    font-weight: bold;
-}
-
-.error-display {
-    display: flex;
 }
 
 @media screen and (max-width: 600px){
@@ -208,11 +202,3 @@ img {
     }
 
 }
-
-.footer {
-    padding: 8px 8px 8px 8px;
-    margin-bottom: 8px;
-    margin-top: 16px;
-    color:white;
-}
-

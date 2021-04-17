@@ -1,4 +1,6 @@
-@import './navigation-burger.css';
+@import './lib/navigation-burger.css';
+@import './lib/footer.css';
+@import './lib/error.css';
 
 .box {
     border: 1px solid black;
@@ -71,11 +73,14 @@ h1 {
 }
 
 .main-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     grid-gap: 16px;
 }
 
+.main-container-display {
+    display: flex;
+}
 
 .container {
     display: grid;
@@ -163,12 +168,4 @@ h1 {
         font-size: 1.5em;
     }
 
-}
-
-
-.footer {
-    padding: 8px 8px 8px 8px;
-    margin-bottom: 8px;
-    margin-top: 16px;
-    color:white;
 }

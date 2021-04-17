@@ -1,0 +1,9 @@
+.error {
+    display: none;
+    color: black;
+    font-weight: bold;
+}
+
+.error-display {
+    display: flex;
+}

@@ -191,7 +191,7 @@ const updateUI = async (dataObject)=> {
     }
 
     catch(error) {
-        console.log(error);
+        updateErrorUI(error);
     }
 
 }
@@ -230,11 +230,11 @@ const generateWeatherResults = (e)=> {
     }
 
     else if(!$ZIP_ELEMENT.value||!$FEELING_ELEMENT.value) {
+
       updateErrorUI('Cannot leave Zip code or Journal Entry Empty')
       clearUI();
+
     }
-    
-    
     
 }
 
@@ -292,4 +292,3 @@ $ZIP_ELEMENT.addEventListener('keyup',verifyZipValue);
 //Hide Entry Holder Division Tag on page load
 
 $ENTRY_HOLDER_ELEMENT.setAttribute('style',"display:none");
-
