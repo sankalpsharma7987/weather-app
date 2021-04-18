@@ -75,7 +75,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 8px 8px 8px 8px;
-    grid-gap: 16px;
+    margin-bottom: 32px;
 }
 
 #entryHolder {
@@ -93,7 +93,7 @@ h1 {
     color: black;
     padding: 8px 8px 8px 8px;
     background: rgb(206, 207, 207);
-    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Balsamiq Sans',sans-serif;
 }
 
 #temp {
@@ -187,10 +187,18 @@ img {
     outline: none;
 }
 
+#zip,#generate,#feelings,.error{
+    margin-bottom: inherit;
+}
+
 @media screen and (max-width: 600px){
 
     .nav-bar {
         display: none;
+    }
+
+    #element-container {
+        align-items: stretch;
     }
 
 }

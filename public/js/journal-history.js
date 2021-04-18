@@ -37,14 +37,20 @@ const updateUI = async (dataObjects)=> {
               const divTemp = document.createElement('div');
               const divWeather = document.createElement('div');
               const divDateValue = document.createElement('div');
-              const divFeelingDescription = document.createElement('div');
+              const divFeelingSummaryDescription = document.createElement('div');
+              const divWeatherDescription = document.createElement('div');
               const divFeeling = document.createElement('div');
               let text = `<img src='${dataObjects[dataKey].weatherIcon}'></img>`
   
               divIcon.innerHTML = text;
               text = `<p>${dataObjects[dataKey].temp}&deg;F</p>`
               divTemp.innerHTML = text;
+
+              text = `<p>${dataObjects[dataKey].description}</p>`;
+              divWeatherDescription.innerHTML = text;
+
               divWeather.appendChild(divIcon);
+              divWeather.appendChild(divWeatherDescription);
               divWeather.appendChild(divTemp);
               divWeather.setAttribute('class','weather-class');
               journalEntry.appendChild(divWeather);
@@ -53,10 +59,10 @@ const updateUI = async (dataObjects)=> {
               text = `<p>${dataObjects[dataKey].dateValue}</p>`;
               divDateValue.innerHTML = text;
              
-              text = `<p> Feeling: ${dataObjects[dataKey].feeling}</p>`;
-              divFeelingDescription.innerHTML = text;
+              text = `<p> Feeling: ${dataObjects[dataKey].feelingSummary}</p>`
+              divFeelingSummaryDescription.innerHTML = text;
               divFeeling.appendChild(divDateValue);
-              divFeeling.appendChild(divFeelingDescription);
+              divFeeling.appendChild(divFeelingSummaryDescription);
               divFeeling.setAttribute('class','feeling-class');
               journalEntry.appendChild(divFeeling);
               journalEntry.setAttribute('class','entry-class');

@@ -71,17 +71,28 @@ const feeling = req.query.feeling;
             })
         }
 
+              
+        let feelingSplit = feeling.split(" ");
+        let feelingSliceArray = feelingSplit.slice(0,10);
+        let feelingSlice = feelingSliceArray.join(" ");
+        let feelingSummary = feelingSliceArray.length>5?feelingSlice.concat('...'):feeling;
+
+        let descriptionWordArray = weatherData.description.split(" ");
+        let descriptionCaps = descriptionWordArray.map(word=> word[0].toUpperCase()+word.substr(1));
+        let description = descriptionCaps.join(" ");
+
         const newJournalEntry = {
         city: weatherData.city,
-        temp: weatherData.temp,
+        temp: Math.round(weatherData.temp,0),
         dateValue: $TODAY,
         feeling: feeling,
-        minTemp: weatherData.minTemp,
-        maxTemp: weatherData.maxTemp,
+        feelingSummary,
+        minTemp: Math.round(weatherData.minTemp,0),
+        maxTemp: Math.round(weatherData.maxTemp,0),
         humidity: weatherData.humidity,
         windSpeed: weatherData.windSpeed,
         country: weatherData.country,
-        description: weatherData.description,
+        description,
         realFeel: weatherData.realFeel,
         weatherIcon: weatherData.weatherIcon
 
