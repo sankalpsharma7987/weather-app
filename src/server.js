@@ -73,9 +73,9 @@ const feeling = req.query.feeling;
 
               
         let feelingSplit = feeling.split(" ");
-        let feelingSliceArray = feelingSplit.slice(0,10);
+        let feelingSliceArray = feelingSplit.slice(0,3);
         let feelingSlice = feelingSliceArray.join(" ");
-        let feelingSummary = feelingSliceArray.length>5?feelingSlice.concat('...'):feeling;
+        let feelingSummary = feelingSplit.length>3?feelingSlice.concat('...'):feeling;
 
         let descriptionWordArray = weatherData.description.split(" ");
         let descriptionCaps = descriptionWordArray.map(word=> word[0].toUpperCase()+word.substr(1));
