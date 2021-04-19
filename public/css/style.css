@@ -30,7 +30,7 @@ body {
 
 h2 {
     font-size: 2em;
-    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Balsamiq Sans', sans-serif;
 }
 
 .nav-bar {
@@ -55,7 +55,7 @@ a:hover {
 h1 {
     font-size: 3em;
     text-align: center;
-    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Balsamiq Sans', sans-serif;
     color: black;
     padding: 8px 8px 8px 8px;
 }
