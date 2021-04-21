@@ -1,6 +1,7 @@
 @import './lib/navigation-burger.css';
 @import './lib/footer.css';
 @import './lib/error.css';
+@import './lib/button-class.css';
 
 body {
     font-family: sans-serif;
@@ -170,11 +171,7 @@ img {
 }
 
 #generate {
-    padding: 8px 8px 8px 8px;
     font-size: 1.5em;
-    border-radius: 0.5em;
-    background:rgb(206, 207, 207);
-    border-style: none;
 }
 
 
