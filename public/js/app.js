@@ -111,30 +111,37 @@ const updateContent = (dataObject)=> {
 
   divRealFeel.innerHTML = text;
   $CONTENT_ELEMENT.appendChild(divRealFeel);
+  divRealFeel.classList.add('realfeel');
   
   text = `<b> Minimum Temperature </b> ${dataObject.minTemp} &deg;F`;
   divMinTemp.innerHTML = text;
   $CONTENT_ELEMENT.appendChild(divMinTemp);
+  divMinTemp.classList.add('mintemp');
   
-  text = `<b> Minimum Temperature </b> ${dataObject.maxTemp} &deg;F`;
+  text = `<b> Maximum Temperature </b> ${dataObject.maxTemp} &deg;F`;
   divMaxTemp.innerHTML = text;
   $CONTENT_ELEMENT.appendChild(divMaxTemp);
+  divMaxTemp.classList.add('maxtemp');
 
   text = `<b> Humidity </b> <span>${dataObject.humidity} &percnt;</span>`
   divHumidity.innerHTML = text;
   $CONTENT_ELEMENT.appendChild(divHumidity);
+  divHumidity.classList.add('humidity');
   
   text = `<b> Wind Speed </b> <span>${dataObject.humidity} mi/hr</span>`
   divWindSpeed.innerHTML = text;
   $CONTENT_ELEMENT.appendChild(divWindSpeed);
+  divWindSpeed.classList.add('windspeed');
 
   text = `<b> Conditions </b> <span>${dataObject.description} </span>`
   divConditions.innerHTML = text;
   $CONTENT_ELEMENT.appendChild(divConditions);
+  divConditions.classList.add('conditions');
 
   text = `<b> Feeling </b> <span>${dataObject.feeling} </span>`
   divFeeling.innerHTML = text;
   $CONTENT_ELEMENT.appendChild(divFeeling);
+  divFeeling.classList.add('entry-feeling');
 
 }
 

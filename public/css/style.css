@@ -96,6 +96,10 @@ h1 {
     font-family: 'Balsamiq Sans',sans-serif;
 }
 
+.realfeel,.mintemp,.maxtemp,.humidity,.windspeed,.conditions {
+    margin-bottom: 8px;
+}
+
 #temp {
     display: flex;
     flex-flow: row;
